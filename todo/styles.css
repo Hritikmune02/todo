@@ -1,0 +1,236 @@
+/* Reset and box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(./background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+}
+
+/* Container styles */
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e6b7ec; /* Light purple border */
+}
+/* Input container and button */
+.input-container, .filters, .todos-container {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+  background: transparent;
+  border: 2px solid #e6b7ec; /* Light purple border */
+  color: #463c7b; /* Darker purple text color */
+  margin-right: 10px;
+}
+
+.todo-input::placeholder {
+  color: #bfbfbf; /* Light gray placeholder text color */
+}
+
+
+.add-button {
+  background-color: #e6b7ec; /* Light purple background */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%; /* Circle shape */
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-button i {
+  font-size: 20px; /* Adjusted font size for the plus icon */
+}
+
+/* Filter and delete all buttons */
+.filters, .delete-all {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter, .delete-all {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+}
+
+.filter:hover, .delete-all:hover {
+  background-color: #0056b3;
+}
+
+/* Todo list and items */
+.todos {
+  list-style: none;
+  padding: 0;
+}
+
+.empty-image {
+  display: none;
+  width: 100%;
+}
+
+.todo {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #463c7b;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 2px solid #e6b7ec; /* Light purple border */
+  transition: all 0.2s ease;
+}
+
+.todo:first-child {
+  margin-top: 0;
+}
+
+.todo:last-child {
+  margin-bottom: 0;
+}
+
+.todo:hover {
+  background-color: #e6b7ec;
+}
+
+.todo label {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #eee;
+}
+
+.todo span {
+  padding-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+span::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin-left: -30px;
+  border-radius: 100px;
+  border: 2px solid #e6b7ec;
+}
+
+input[type='checkbox'] {
+  visibility: hidden;
+}
+
+input:checked + span {
+  text-decoration: line-through;
+}
+
+.todo:hover input:checked + span::before, input:checked + span::before {
+  background: url(./check.svg) 50% 50% no-repeat #09bb21;
+  border-color: #09bb21;
+}
+
+.todo:hover span::before {
+  border-color: #eee;
+}
+
+.todo .delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #eee;
+  font-size: 24px;
+}
+
+.todos-container {
+  height: 300px;
+  overflow: overlay;
+}
+
+.todos-container::-webkit-scrollbar-track {
+  background: rgb(247, 247, 247);
+  border-radius: 20px;
+}
+
+.todos-container::-webkit-scrollbar {
+  width: 0;
+}
+
+.todos-container:hover::-webkit-scrollbar {
+  width: 7px;
+}
+
+.todos-container::-webkit-scrollbar-thumb {
+  background: #d5d5d5;
+  border-radius: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.filter {
+  color: #eee;
+  padding: 5px 15px;
+  border-radius: 100px;
+  border: 2px solid #e6b7ec;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter.active, .filter:hover {
+  background-color: #e6b7ec;
+}
+
+.delete-all {
+  display: flex;
+  color: #eee;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-all:hover {
+  border-radius: 5px;
+  background-color: #e6b7ec;
+}
